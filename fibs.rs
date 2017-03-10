@@ -30,16 +30,7 @@ fn fibonacci() -> Fibonacci {
 }
 
 fn main()   {
-    let mut sum : u64 = 0;
-
-    for fib in fibonacci()  {
-        if fib > 4000000    {
-            break;
-        }
-        if fib % 2 == 0 {
-            sum += fib;
-        }
-    }
+    let sum : u64 = fibonacci().filter(|&x| x % 2 == 0).take_while(|&x| x < 4000000).sum();
 
     println!("{}", sum);
 }
